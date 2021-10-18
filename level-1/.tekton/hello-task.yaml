@@ -15,8 +15,6 @@ spec:
       onError: continue
       command:
         - exit 1
-      args:
-        - "hello world"
     - name: echo3
       image: ubuntu
       command:
