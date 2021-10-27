@@ -11,6 +11,7 @@ spec:
       args:
         - "hello world"
     - name: echo2
+      onError: continue
       image: ubuntu
       command:
         - exit 1
