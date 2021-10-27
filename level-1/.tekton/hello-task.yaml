@@ -10,17 +10,16 @@ spec:
         - echo
       args:
         - "hello world"
-    - name: echo3
+    - name: echo
       image: ubuntu
-      onError: continue
       command:
         - echo
       args:
-        - "hello world4"
-     - name: echo4
+        - "hello world"
+    - name: echo
       image: ubuntu
-      onError: continue
       command:
         - echo
       args:
-        - "hello world3"
+        - "hello world"
+
