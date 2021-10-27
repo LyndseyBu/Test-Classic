@@ -12,6 +12,7 @@ spec:
         - "hello world"
     - name: shouldcontinue
       image: ubuntu
+      onError: continue
       script: |
          exit 1
     - name: echo3
