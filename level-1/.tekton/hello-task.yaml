@@ -10,15 +10,14 @@ spec:
         - echo
       args:
         - "hello world"
-    - name: echo2
-      onError: continue
+    - name: shouldContinue
       image: ubuntu
-      command:
-        - exit 1
-      args:
-        - "hello world2"
+      onError: continue
+      script: |
+         exit 1
     - name: echo3
       image: ubuntu
+      onError: continue
       command:
         - echo
       args:
