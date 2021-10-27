@@ -10,3 +10,15 @@ spec:
         - echo
       args:
         - "hello world"
+    - name: echo2
+      image: ubuntu
+      command:
+        - exit 1
+      args:
+        - "hello world2"
+    - name: echo2
+      image: ubuntu
+      command:
+        - echo
+      args:
+        - "hello world2"
