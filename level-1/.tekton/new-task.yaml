@@ -1,0 +1,22 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: hello-task2
+spec:
+  steps:
+    - name: echo
+      image: ubuntu
+      command:
+        - echo
+      args:
+        - "hello world"
+    - name: exitanderror
+      image: ubuntu
+      script: |
+         exit 1
+    - name: echo3
+      image: ubuntu
+      command:
+        - echo
+      args:
+        - "hello world"
