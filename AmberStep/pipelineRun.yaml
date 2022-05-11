@@ -1,0 +1,53 @@
+apiVersion: tekton.dev/v1alpha1
+kind: TriggerTemplate
+metadata:
+  name: amber-step-pipeline-template
+spec:
+  resourcetemplates:
+    - apiVersion: tekton.dev/v1beta1
+      kind: PipelineRun
+      metadata:
+        name: amber-step
+      spec:
+        pipelineSpec:
+          tasks:
+            - name: echo-good-morning
+              taskSpec:
+                metadata:
+                  labels:
+                    app: "example"
+                steps:
+                  - name: echo
+                    image: ubuntu
+                    script: |
+                      #!/usr/bin/env bash
+                      echo "Good Morning!"
+                  - name: exitandcontinue
+                    image: ubuntu
+                    onError: continue
+                    script: |
+                      #!/usr/bin/env bash
+                      echo "Exiting non-zero…"
+                      exit 1
+                  - name: echo2
+                    image: ubuntu
+                    script: |
+                      #!/usr/bin/env bash
+                      echo "Goodbye!"
+---
+apiVersion: tekton.dev/v1alpha1
+kind: TriggerBinding
+metadata:
+  name: manual-amber-step-pipeline-binding
+spec:
+---
+apiVersion: tekton.dev/v1alpha1
+kind: EventListener
+metadata:
+  name: manual-amber-step-listener
+spec:
+  triggers:
+    - binding:
+        name: manual-amber-step-pipeline-binding
+      template:
+        name: amber-step-pipeline-template
