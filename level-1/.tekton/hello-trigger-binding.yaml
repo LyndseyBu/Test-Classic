@@ -8,3 +8,5 @@ spec:
       value: "https://github.com/LyndseyBu/Tekton-Tutorial"
     - name: branch
       value: "master"
+    - name: run_description  
+      value: ${event.run_description}
