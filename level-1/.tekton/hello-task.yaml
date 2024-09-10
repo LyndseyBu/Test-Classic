@@ -3,7 +3,7 @@ kind: Task
 metadata:
   name: hello-task
 spec:
-   steps:
+  steps:
     - name: echo
       image: ubuntu
       command:
