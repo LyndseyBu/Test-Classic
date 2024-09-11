@@ -2,7 +2,7 @@ apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
   name: hello-pipeline
-  spec:
+spec:
   tasks:
     - name: pipeline-hello-task
       taskRef:
