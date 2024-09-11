@@ -5,6 +5,6 @@ metadata:
 spec:
   triggers:
     - binding:
-      name: hello-trigger-binding
+        name: hello-trigger-binding
       template:
         name: hello-trigger-template
