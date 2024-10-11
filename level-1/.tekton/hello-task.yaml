@@ -9,15 +9,16 @@ spec:
       command:
         - echo
       args:
-        - "hello world"
+        - hello world
     - name: exitandcontinue
-      image: ubuntu
       script: |
-         exit 1
+        #!/usr/bin/env bash
+        echo "Exiting non-zero…"
+        exit 1
     - name: echo3
       image: ubuntu
       command:
         - echo
       args:
-        - "hello world"
+        - hello world
 
